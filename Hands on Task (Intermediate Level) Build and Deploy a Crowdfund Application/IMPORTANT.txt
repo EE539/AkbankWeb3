@@ -1,0 +1,2 @@
+You need to get the file ERC20.sol from : https://github.com/OpenZeppelin/openzeppelin-contracts/tree/master/contracts/token/ERC20
+You also need the IERC20.sol, IERC20Metadata.sol, and Context.sol to make sure ERC20.sol to work! Follow the locations in the ERC20.sol file
