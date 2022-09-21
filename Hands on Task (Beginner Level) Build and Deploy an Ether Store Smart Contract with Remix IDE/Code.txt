@@ -1,0 +1,26 @@
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.17;
+
+contract FeeCollector{
+    address public owner;
+    uint public balance;
+
+    constructor(){
+        owner = msg.sender; //Who deployed this contract
+    }  
+
+    receive() payable external{
+        balance += msg.value; //How much money we have with the smart contract
+    }
+
+    function withdraw(uint amount, address payable destAddr) public{
+        require(msg.sender == owner, "Only owner can withdraw");
+        require(amount <= balance, "Insufficient funds");
+
+        destAddr.transfer(amount);
+        balance -= amount;
+    }
+}
+
+//msg.value = Let us access how much money was sent to the smart contract within the transaction
+
